@@ -9,8 +9,11 @@ async function getMedia() {
             const urlParams = new URLSearchParams(window.location.search);
             const id = parseInt(urlParams.get('id'))
             const data = await response.json()
-            const media = data.media
-            return media.filter(media => media.photographerId === id);
+            let media = data.media
+            let photographers = data.photographers
+            media = media.filter(media => media.photographerId === id)
+            photographers = photographers.filter(photographer => photographer.id === id)
+            return {media, photographers}
         })
     } catch (error) {
         console.log(error)
@@ -18,10 +21,15 @@ async function getMedia() {
 }
 
 async function displayData(data) {
-    data.forEach((data) => {
-        const photographerData = mediaFactory(data);
-        const media = photographerData.getMedia()
-    });
+    const photographer = photographerFactory(data.photographers[0])
+    const medias = data.media
+    const sectionMedia = document.querySelector('.section-media')
+    photographer.getUserHeaderDom()
+    medias.forEach(media => {
+        const mediaModel = mediaFactory(media)
+        const mediaCardDOM = mediaModel.getMediaCardDOM()
+        sectionMedia.appendChild(mediaCardDOM)
+    })
 };
 
 async function init() {
