@@ -1,5 +1,5 @@
 function mediaFactory(data) {
-    const {title, likes, price} = data
+    const {title, likes, date} = data
 
     function video() {
         const video = document.createElement("video")
@@ -25,6 +25,9 @@ function mediaFactory(data) {
         const mediaCard = document.createElement('div')
         mediaCard.classList.add("media-card")
         mediaCard.appendChild(getMedia())
+        mediaCard.setAttribute("data-title", title)
+        mediaCard.setAttribute("data-likes", likes)
+        mediaCard.setAttribute("data-date", date)
         const div = document.createElement('div')
         div.classList.add("media-card-informations")
         const h2 = document.createElement('h2')

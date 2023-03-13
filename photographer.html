@@ -15,8 +15,20 @@
     <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
     </div>
+    <div class="sort">
+        <p>Trier par</p>
+        <div class="select" role="listbox">
+            <div role="option">
+                <p id="popularity">Popularité</p>
+                <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.12 0.453125L8 6.55979L1.88 0.453125L0 2.33312L8 10.3331L16 2.33312L14.12 0.453125Z" fill="white"/>
+                </svg>                    
+            </div>
+            <div role="option" class="hidden"><p id="date">Date</p></div>
+            <div role="option" class="hidden"><p id="title">Titre</p></div>
+        </div>
+    </div>
     <section class="section-media">
-
     </section>
 </main>
 <div id="contact_modal">
@@ -38,5 +50,6 @@
 <script src="scripts/factories/media.js"></script>
 <script src="/scripts/pages/photographer.js"></script>
 <script src="/scripts/utils/contactForm.js"></script>
+<script src="scripts/sort/sort.js"></script>
 </body>
 </html>

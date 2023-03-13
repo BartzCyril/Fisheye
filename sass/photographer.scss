@@ -2,8 +2,9 @@
 
 body {
     font-family: "DM Sans", sans-serif;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
+    padding: 0 100px 114px 100px;
 }
 
 .logo {
@@ -16,37 +17,100 @@ body {
 }
 
 .photograph-header {
+    margin-top: 40px;
     background-color: #FAFAFA;
     padding: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     div {
         display: flex;
         flex-direction: column;
         row-gap: 19px;
+
         h1 {
             font-weight: 400;
             font-size: 64px;
             color: #D3573C;
         }
+
         span {
             font-weight: 400;
             font-size: 24px;
             color: #901C1C;
         }
+
         p {
             font-weight: 400;
             font-size: 18px;
             color: #525252;
         }
     }
+
     img {
-            height: 200px;
-            width: 200px;
-            border-radius: 100%;
-            object-fit: cover;
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+        object-fit: cover;
     }
+}
+
+.sort {
+    position: relative;
+    p {
+        font-weight: 700;
+        font-size: 18px;
+        color: #000000;
+    }
+    .select {
+        position: absolute;
+        left: 99px;
+        top: -10px;
+        background: #911C1C;
+        border-radius: 5px;
+        z-index: 9999;
+        div {
+            padding: 23px 18px 14px 20px;
+            position: relative;
+        }
+        div p {
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        div:nth-child(1) {
+            display: flex;
+            align-items: center;
+            svg {
+                margin-left: 26px;
+                cursor: pointer;
+            }
+        }
+        div:last-child {
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.pseudo-elt::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 1px;
+    background: white;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: calc(100% - 20px);
+}
+
+.hidden {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .section-media {
@@ -54,33 +118,47 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
     grid-column-gap: 95px;
+    margin-top: 58px;
     .media-card {
         width: 350px;
         height: 351px;
-        img:first-child, video:first-child {
+
+        img:first-child,
+        video:first-child {
             width: 350px;
             height: 300px;
             object-fit: cover;
             border-radius: 5px;
         }
+
         .media-card-informations {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
+            position: relative;
+            height: 50px;
+
             h2 {
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
                 font-weight: 400;
                 font-size: 24px;
                 color: #911C1C;
+                width: 75%;
             }
+
             div {
                 display: flex;
                 flex-direction: row;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+
                 p {
                     font-weight: 500;
                     font-size: 24px;
                     color: #911C1C;
                 }
+
                 img {
                     margin-left: 7px;
                     object-fit: contain;
@@ -113,13 +191,16 @@ body {
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+
     header {
         justify-content: space-between;
         width: 100%;
     }
+
     header img {
         cursor: pointer;
     }
+
     header h2 {
         font-size: 64px;
         font-weight: normal;
@@ -133,10 +214,12 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+
     label {
         color: #312E2E;
         font-size: 36px;
     }
+
     div {
         display: flex;
         flex-direction: column;
@@ -144,6 +227,7 @@ form {
         align-items: self-start;
         margin-bottom: 26px;
     }
+
     input {
         width: 100%;
         height: 68px;
@@ -152,3 +236,33 @@ form {
     }
 }
 
+.photographer-informations {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background: #DB8876;
+    border-radius: 5px;
+
+    .photographer-informations-likes {
+        display: flex;
+
+        p {
+            font-weight: 500;
+            font-size: 24px;
+        }
+
+        img {
+            margin-left: 6px;
+            object-fit: contain;
+        }
+    }
+
+    p:last-child {
+        margin-left: 67px;
+        font-weight: 500;
+        font-size: 24px;
+    }
+}

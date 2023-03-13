@@ -21,15 +21,19 @@ async function getMedia() {
 }
 
 async function displayData(data) {
+    const body = document.querySelector('body')
     const photographer = photographerFactory(data.photographers[0])
     const medias = data.media
     const sectionMedia = document.querySelector('.section-media')
+    const totalLikes = medias.reduce((accumulator, currentValue) => accumulator + currentValue.likes, 0);
     photographer.getUserHeaderDom()
     medias.forEach(media => {
         const mediaModel = mediaFactory(media)
         const mediaCardDOM = mediaModel.getMediaCardDOM()
         sectionMedia.appendChild(mediaCardDOM)
     })
+    sortByPopularity()
+    body.insertAdjacentElement('beforeend', photographer.getUserInformationsDom(totalLikes))
 };
 
 async function init() {
@@ -37,5 +41,7 @@ async function init() {
     const photographerData = await getMedia()
     displayData(photographerData)
 };
+
+
 
 init();
