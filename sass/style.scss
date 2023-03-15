@@ -27,11 +27,10 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 70px;
+    grid-column-gap: calc(33.3% - 100px);
     margin-top: 100px;
     article {
-        justify-self: center;
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
         row-gap: 3px;
@@ -46,6 +45,7 @@ header {
         color: #D3573C;
         font-size: 36px;
         margin-top: 20px;
+        text-align: center;
     }
     article a img {
         border-radius: 100%;
@@ -74,3 +74,25 @@ header {
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .photographer_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    header {
+        flex-direction: column;
+        h1 {
+            text-align: center;
+        }
+    }
+    .photographer_section {
+        margin-top: 50px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

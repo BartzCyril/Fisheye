@@ -34,6 +34,7 @@ async function displayData(data) {
     })
     sortByPopularity()
     body.insertAdjacentElement('beforeend', photographer.getUserInformationsDom(totalLikes))
+    photographer.addNameTitleForm()
 };
 
 async function init() {

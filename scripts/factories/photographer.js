@@ -59,5 +59,8 @@ function photographerFactory(data) {
         div.appendChild(p2)
         return (div)
     }
-    return { getUserCardDOM, getUserHeaderDom, getUserInformationsDom}
+    function addNameTitleForm() {
+        document.querySelector('.modal header h3').textContent = name
+    }
+    return { getUserCardDOM, getUserHeaderDom, getUserInformationsDom, addNameTitleForm}
 }

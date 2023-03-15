@@ -27,7 +27,7 @@ function mediaFactory(data) {
         mediaCard.appendChild(getMedia())
         mediaCard.setAttribute("data-title", title)
         mediaCard.setAttribute("data-likes", likes)
-        mediaCard.setAttribute("data-date", date)
+        mediaCard.setAttribute("data-date", new Date(date).getTime() / 1000)
         const div = document.createElement('div')
         div.classList.add("media-card-informations")
         const h2 = document.createElement('h2')

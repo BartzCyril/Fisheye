@@ -2,9 +2,7 @@ const svg = document.querySelector('.select svg')
 const pathSvg = document.querySelector('.select svg path')
 const options = document.querySelectorAll('.select div')
 const itemOptions = document.querySelectorAll('.select div p')
-const popularity = document.getElementById('popularity')
-const date = document.getElementById('date')
-const title = document.getElementById('title')
+let optionsSelect = document.querySelectorAll('.select p')
 let isOpenModal = false
 
 function openModalSort() {
@@ -31,18 +29,53 @@ svg.addEventListener('click', function() {
     isOpenModal ? closeModalSort() : openModalSort()
 })
 
+function swapElements(array, index) {
+    temp = array[0].textContent
+    array[0].textContent = array[index].textContent
+    array[index].textContent = temp
+    return array
+}
+
+function switchElement(element) {
+    let optionsSelect = document.querySelectorAll('.select p')
+    let index = 0
+    for (let i=0; i < optionsSelect.length; i++) {
+        if (optionsSelect[i].textContent === element) {
+            index = i
+            break
+        }
+    }
+    switch(element) {
+        case 'Popularité' : 
+        optionsSelect = swapElements(optionsSelect, index)
+        break
+        case 'Date' : 
+        optionsSelect = swapElements(optionsSelect, index)
+        break
+        case 'Titre' : 
+        optionsSelect = swapElements(optionsSelect, index)
+        break
+    }
+    return optionsSelect
+}
+
 function sortByPopularity() {
     const sectionMedia = document.querySelector('.section-media')
     let mediaCards = Array.from(document.querySelectorAll('.media-card'))
     mediaCards = mediaCards.sort((a,b) => b.dataset.likes - a.dataset.likes)
     mediaCards.forEach(media => sectionMedia.appendChild(media))
+    closeModalSort()
+    optionsSelect = switchElement('Popularité')
 }
 
 function sortByDate() {
+    console.log("date")
     const sectionMedia = document.querySelector('.section-media')
     let mediaCards = Array.from(document.querySelectorAll('.media-card'))
     mediaCards = mediaCards.sort((a,b) => b.dataset.date - a.dataset.date)
     mediaCards.forEach(media => sectionMedia.appendChild(media))
+    closeModalSort()
+    optionsSelect = switchElement('Date')
 }
 
 function sortByTitle() {
@@ -58,14 +91,22 @@ function sortByTitle() {
         }
     })
     mediaCards.forEach(media => sectionMedia.appendChild(media))
+    closeModalSort()
+    optionsSelect = switchElement('Titre')
 }
 
-popularity.addEventListener('click', function() {
-    isOpenModal ? sortByPopularity() : ''
-})
-title.addEventListener('click', function() {
-    isOpenModal ? sortByTitle() : ''
-})
-date.addEventListener('click', function() {
-    isOpenModal ? sortByDate() : ''
-}) 
+optionsSelect.forEach(element => element.addEventListener('click', function() {
+    switch(element.textContent) {
+        case 'Popularité' : 
+        isOpenModal ? sortByPopularity() : ''
+        break
+        case 'Date' : 
+        isOpenModal ? sortByDate() : ''
+        break
+        case 'Titre' : 
+        isOpenModal ? sortByTitle() : ''
+        break
+    }
+}))
+
+
