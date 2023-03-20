@@ -15,7 +15,8 @@
     </header>
     <main id="main">
         <div class="photograph-header">
-            <button aria-label="Contact me" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <button aria-label="Contact me" class="contact_button"
+                onclick="displayContactModal()">Contactez-moi</button>
         </div>
         <div class="bground">
             <dialog id="contact_modal" role="dialog" aria-labelledby="photographer">
@@ -23,7 +24,7 @@
                     <header>
                         <div>
                             <h2 id="photographer" tabindex="0">Contactez-moi</h2>
-                            <img src="assets/icons/close.svg" onclick="closeModal()" />
+                            <img src="assets/icons/close.svg" onclick="closeContactModal()" />
                         </div>
                         <h3></h3>
                     </header>
@@ -50,22 +51,48 @@
                     </form>
                 </div>
             </dialog>
+            <dialog id="media_modal" role="dialog">
+                <div>
+                    <div>
+                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" class="close" onclick="closeMediaModal()">
+                            <path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="#911C1C"/>
+                        </svg>
+                        <svg width="30" height="48" viewBox="0 0 30 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow" onclick="moveBackward()">
+                            <path
+                                d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z"
+                                fill="#911C1C" />
+                        </svg>
+                        <div class="media_modal_data">
+                            <p></p>
+                        </div>
+                        <svg width="30" height="48" viewBox="0 0 30 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow" onclick="moveForward()">
+                            <path
+                                d="M0.360108 5.64L18.6801 24L0.360107 42.36L6.00011 48L30.0001 24L6.00011 3.88195e-06L0.360108 5.64Z"
+                                fill="#911C1C" />
+                        </svg>
+                    </div>
+                </div>
+            </dialog>
         </div>
         <div class="sort">
             <p>Trier par</p>
             <div class="select" role="listbox">
                 <div>
-                    <p tabindex="0" role="listbox" aria-activedescendant="true" aria-selected="true" aria-labelledby="true">Popularité</p>
-                    <svg aria-label="Order by" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="true" width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p tabindex="0" role="listbox" aria-activedescendant="true" aria-selected="true"
+                        aria-labelledby="true">Popularité</p>
+                    <svg aria-label="Order by" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="true"
+                        width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14.12 0.453125L8 6.55979L1.88 0.453125L0 2.33312L8 10.3331L16 2.33312L14.12 0.453125Z"
                             fill="white" />
                     </svg>
                 </div>
                 <div class="hidden">
-                    <p tabindex="0" role="listbox" aria-activedescendant="true" aria-selected="true" aria-labelledby="true">Date</p>
+                    <p tabindex="0" role="listbox" aria-activedescendant="true" aria-selected="true"
+                        aria-labelledby="true">Date</p>
                 </div>
                 <div class="hidden">
-                    <p tabindex="0" role="listbox" aria-activedescendant="true" aria-selected="true" aria-labelledby="true">Titre</p>
+                    <p tabindex="0" role="listbox" aria-activedescendant="true" aria-selected="true"
+                        aria-labelledby="true">Titre</p>
                 </div>
             </div>
         </div>
@@ -76,6 +103,7 @@
     <script src="scripts/factories/media.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/modalMedia.js"></script>
     <script src="scripts/sort/sort.js"></script>
 </body>
 

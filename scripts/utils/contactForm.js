@@ -1,11 +1,11 @@
-function displayModal() {
+function displayContactModal() {
     const modal = document.getElementById("contact_modal");
     const bground = document.querySelector('.bground')
     modal.style.display = "block";
     bground.style.display = "block";
 }
 
-function closeModal() {
+function closeContactModal() {
     const modal = document.getElementById("contact_modal");
     const bground = document.querySelector('.bground')
     modal.style.display = "none";

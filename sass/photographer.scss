@@ -140,6 +140,10 @@ body {
         width: 350px;
         height: 351px;
 
+        img:hover {
+            cursor: pointer;
+        }
+
         img:first-child,
         video:first-child {
             width: 350px;
@@ -209,8 +213,8 @@ body {
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-    
-    header div{
+
+    header div {
         display: flex;
         align-items: center;
         width: 100%;
@@ -223,7 +227,8 @@ body {
         cursor: pointer;
     }
 
-    header h2,h3 {
+    header h2,
+    h3 {
         font-size: 64px;
     }
 
@@ -325,4 +330,47 @@ form {
     overflow: auto;
     background-color: rgba(196, 196, 196, 0.4);
     display: none;
+}
+
+#media_modal {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    div:first-child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        div:nth-child(1) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+                cursor: pointer;
+            }
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 1px;
+            }
+            .arrow {
+                margin: 0 17.5px;
+            }
+        }
+    }
+    .media_modal_data {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        img, video {
+            height: 80vh;
+        }
+        p {
+            font-size: 24px;
+            line-height: 31px;
+            color: #911C1C;
+        }
+    }
 }
