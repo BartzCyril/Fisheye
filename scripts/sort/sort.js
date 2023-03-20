@@ -69,7 +69,6 @@ function sortByPopularity() {
 }
 
 function sortByDate() {
-    console.log("date")
     const sectionMedia = document.querySelector('.section-media')
     let mediaCards = Array.from(document.querySelectorAll('.media-card'))
     mediaCards = mediaCards.sort((a,b) => b.dataset.date - a.dataset.date)
