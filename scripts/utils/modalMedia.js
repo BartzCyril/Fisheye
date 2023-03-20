@@ -14,7 +14,7 @@ function displayMediaModal(title) {
     p = document.querySelector('.media_modal_data p')
     currentIndex = getMediaIndex(title)
     medias[currentIndex].dataset.video ? currentMedia = 'video' : currentMedia = 'img'
-    getMedia(title)
+    getMedia()
 }
 
 function closeMediaModal() {
@@ -40,14 +40,12 @@ function isImg(element) {
 
 function moveForward() {
     currentIndex + 1 === medias.length ? currentIndex = 0 : currentIndex++
-    const title = medias[currentIndex].alt
-    getMedia(title)
+    getMedia()
 }
 
 function moveBackward() {
     currentIndex - 1 === -1 ? currentIndex = medias.length - 1 : currentIndex--
-    const title = medias[currentIndex].alt
-    getMedia(title)
+    getMedia()
 }
 
 function createImg(src, alt) {
