@@ -45,17 +45,7 @@ function switchElement(element) {
             break
         }
     }
-    switch(element) {
-        case 'Popularité' : 
-        optionsSelect = swapElements(optionsSelect, index)
-        break
-        case 'Date' : 
-        optionsSelect = swapElements(optionsSelect, index)
-        break
-        case 'Titre' : 
-        optionsSelect = swapElements(optionsSelect, index)
-        break
-    }
+    optionsSelect = swapElements(optionsSelect, index)
     return optionsSelect
 }
 
