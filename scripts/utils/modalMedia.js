@@ -31,7 +31,6 @@ function getMediaIndex(title) {
             return i
         }
     }
-    return -1
 }
 
 function isImg(element) {

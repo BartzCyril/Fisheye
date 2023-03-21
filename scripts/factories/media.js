@@ -43,6 +43,7 @@ function mediaFactory(data) {
         mediaCard.setAttribute("data-title", title)
         mediaCard.setAttribute("data-likes", likes)
         mediaCard.setAttribute("data-date", new Date(date).getTime() / 1000)
+        mediaCard.setAttribute("data-like", false)
         const div = document.createElement('div')
         div.classList.add("media-card-informations")
         const h2 = document.createElement('h2')
@@ -52,6 +53,7 @@ function mediaFactory(data) {
         p.textContent = likes
         const img = document.createElement('img')
         img.setAttribute("src", "assets/images/likes.png")
+        img.addEventListener('click', () => {like(title)})
         div.appendChild(h2)
         divLikes.appendChild(p)
         divLikes.appendChild(img)
