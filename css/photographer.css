@@ -125,10 +125,11 @@ body {
   padding: 23px 18px 14px 20px;
   position: relative;
 }
-.sort .select div p {
+.sort .select div button {
   color: white;
   font-weight: 700;
   font-size: 18px;
+  cursor: pointer;
 }
 .sort .select div:nth-child(1) {
   display: flex;
@@ -209,9 +210,14 @@ body {
   font-size: 24px;
   color: #911C1C;
 }
+.section-media .media-card .media-card-informations div button {
+  display: flex;
+}
 .section-media .media-card .media-card-informations div img {
   margin-left: 7px;
   object-fit: contain;
+  width: 18px;
+  height: 25px;
 }
 
 .contact_button {
@@ -383,6 +389,12 @@ form textarea {
   font-size: 24px;
   line-height: 31px;
   color: #911C1C;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 /*# sourceMappingURL=photographer.css.map */

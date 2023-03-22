@@ -10,7 +10,7 @@ function displayMediaModal(title) {
     const bground = document.querySelector('.bground')
     modal.style.display = "block";
     bground.style.display = "block";
-    medias = document.querySelectorAll('.media-card img:first-child')
+    medias = document.querySelectorAll('.media-card-img')
     p = document.querySelector('.media_modal_data p')
     currentIndex = getMediaIndex(title)
     medias[currentIndex].dataset.video ? currentMedia = 'video' : currentMedia = 'img'
@@ -104,5 +104,6 @@ function getMedia(title) {
     }
     p.textContent = medias[currentIndex].alt
 }
+
 
 

@@ -3,6 +3,10 @@ function displayContactModal() {
     const bground = document.querySelector('.bground')
     modal.style.display = "block";
     bground.style.display = "block";
+    var pageElements = document.querySelectorAll("body > *:not(#contact_modal)");
+			for (var i = 0; i < pageElements.length; i++) {
+				pageElements[i].setAttribute("tabindex", "-1");
+		}
 }
 
 function closeContactModal() {

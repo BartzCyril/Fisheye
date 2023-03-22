@@ -1,14 +1,12 @@
-const svg = document.querySelector('.select svg')
+const button = document.querySelector('.select button[aria-label="Order by"]')
 const pathSvg = document.querySelector('.select svg path')
 const options = document.querySelectorAll('.select div')
-const itemOptions = document.querySelectorAll('.select div p')
-let optionsSelect = document.querySelectorAll('.select p')
+let optionsSelect = document.querySelectorAll('.select div button[role="listbox"]')
 let isOpenModal = false
 
 function openModalSort() {
     isOpenModal = true
     pathSvg.setAttribute('d', 'M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L-3.12482e-07 8.66663L1.88 10.5466Z')
-    itemOptions.forEach(option => option.classList.add("pointer"))
     options[0].classList.add("pseudo-elt")
     options[1].classList.add("pseudo-elt")
     options[1].classList.remove("hidden")
@@ -18,14 +16,13 @@ function openModalSort() {
 function closeModalSort() {
     isOpenModal = false
     pathSvg.setAttribute('d', 'M14.12 0.453125L8 6.55979L1.88 0.453125L0 2.33312L8 10.3331L16 2.33312L14.12 0.453125Z')
-    itemOptions.forEach(option => option.classList.remove("pointer"))
     options[0].classList.remove("pseudo-elt")
     options[1].classList.remove("pseudo-elt")
     options[1].classList.add("hidden")
     options[2].classList.add("hidden")
 }
 
-svg.addEventListener('click', function() {
+button.addEventListener('click', function() {
     isOpenModal ? closeModalSort() : openModalSort()
 })
 
@@ -37,7 +34,7 @@ function swapElements(array, index) {
 }
 
 function switchElement(element) {
-    let optionsSelect = document.querySelectorAll('.select p')
+    let optionsSelect = document.querySelectorAll('.select button')
     let index = 0
     for (let i=0; i < optionsSelect.length; i++) {
         if (optionsSelect[i].textContent === element) {
