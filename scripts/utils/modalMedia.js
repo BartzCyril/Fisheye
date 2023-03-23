@@ -78,7 +78,7 @@ function removeVideo() {
     currentMedia = 'video'
 }
 
-function getMedia(title) {
+function getMedia() {
     const mediaModalData = document.querySelector('.media_modal_data')
     if (isImg(medias[currentIndex])) {
         if (currentMedia !== 'img')
@@ -104,6 +104,7 @@ function getMedia(title) {
     }
     p.textContent = medias[currentIndex].alt
 }
+
 
 
 

@@ -1,6 +1,6 @@
 async function getPhotographers() {
     try {
-        return fetch("../../data/photographers.json", {
+        return fetch("../data/photographers.json", {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"

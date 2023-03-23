@@ -12,6 +12,11 @@ function mediaFactory(data) {
         img.setAttribute("tabindex", "0")
         img.classList.add("media-card-img")
         img.addEventListener('click', () => {displayMediaModal(title)})
+        img.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+              displayMediaModal(title);
+            }
+        });
         video.addEventListener('loadeddata', () => {
             // Définir la taille du canvas en fonction de la vidéo
             canvas.width = video.videoWidth;
@@ -32,6 +37,11 @@ function mediaFactory(data) {
         img.setAttribute("tabindex", "0")
         img.classList.add("media-card-img")
         img.addEventListener('click', () => {displayMediaModal(title)})
+        img.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+              displayMediaModal(title);
+            }
+        });
         return img
     }
 
