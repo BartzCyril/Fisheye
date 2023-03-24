@@ -6,23 +6,23 @@ let isCreateVideo = false
 let currentMedia = null
 
 function displayMediaModal(title) {
-    const modal = document.getElementById("media_modal");
-    const bground = document.querySelector('.bground')
-    modal.style.display = "block";
-    bground.style.display = "block";
-    medias = document.querySelectorAll('.media-card-img')
-    p = document.querySelector('.media_modal_data p')
+    const modal = document.getElementById("media_modal")
+    const bground = document.querySelector(".bground")
+    modal.style.display = "block"
+    bground.style.display = "block"
+    medias = document.querySelectorAll(".media-card-img")
+    p = document.querySelector(".media_modal_data p")
     currentIndex = getMediaIndex(title)
-    medias[currentIndex].dataset.video ? currentMedia = 'video' : currentMedia = 'img'
+    medias[currentIndex].dataset.video ? currentMedia = "video" : currentMedia = "img"
     getMedia()
 }
 
 function closeMediaModal() {
-    const modal = document.getElementById("media_modal");
-    const bground = document.querySelector('.bground')
-    modal.style.display = "none";
-    bground.style.display = "none";
-    currentMedia === 'video' ? removeVideo() : removeImg()
+    const modal = document.getElementById("media_modal")
+    const bground = document.querySelector(".bground")
+    modal.style.display = "none"
+    bground.style.display = "none"
+    currentMedia === "video" ? removeVideo() : removeImg()
 }
 
 function getMediaIndex(title) {
@@ -49,58 +49,58 @@ function moveBackward() {
 
 function createImg(src, alt) {
     isCreateImg = true
-    const img = document.createElement('img')
-    img.setAttribute('alt', alt)
-    img.setAttribute("src", src);
+    const img = document.createElement("img")
+    img.setAttribute("alt", alt)
+    img.setAttribute("src", src)
     return img
 }
 
 function createVideo(src) {
     isCreateVideo = true
     const video = document.createElement("video")
-    video.setAttribute("src", src);
+    video.setAttribute("src", src)
     video.setAttribute("type", "video/mp4")
     video.controls = true
     return video
 }
 
 function removeImg() {
-    const img = document.querySelector('.media_modal_data img')
+    const img = document.querySelector(".media_modal_data img")
     img.remove()
     isCreateImg = false
-    currentMedia = 'img'
+    currentMedia = "img"
 }
 
 function removeVideo() {
-    const video = document.querySelector('.media_modal_data video')
+    const video = document.querySelector(".media_modal_data video")
     video.remove()
     isCreateVideo = false
-    currentMedia = 'video'
+    currentMedia = "video"
 }
 
 function getMedia() {
-    const mediaModalData = document.querySelector('.media_modal_data')
+    const mediaModalData = document.querySelector(".media_modal_data")
     if (isImg(medias[currentIndex])) {
-        if (currentMedia !== 'img')
+        if (currentMedia !== "img")
             removeVideo() 
         if (isCreateImg) {
-            const img = document.querySelector('.media_modal_data img')
+            const img = document.querySelector(".media_modal_data img")
             img.setAttribute("src", medias[currentIndex].src)
             img.setAttribute("alt", medias[currentIndex].alt)
         } else {
-            mediaModalData.insertAdjacentElement('afterbegin',createImg(medias[currentIndex].src, medias[currentIndex].alt))
+            mediaModalData.insertAdjacentElement("afterbegin",createImg(medias[currentIndex].src, medias[currentIndex].alt))
         }
-        currentMedia = 'img'
+        currentMedia = "img"
     } else {
-        if (currentMedia !== 'video') 
+        if (currentMedia !== "video") 
             removeImg()
         if (isCreateVideo) {
-            const video = document.querySelector('.media_modal_data video')
-            video.setAttribute("src", medias[currentIndex].dataset.video);
+            const video = document.querySelector(".media_modal_data video")
+            video.setAttribute("src", medias[currentIndex].dataset.video)
         } else {
-            mediaModalData.insertAdjacentElement('afterbegin',createVideo(medias[currentIndex].dataset.video))
+            mediaModalData.insertAdjacentElement("afterbegin",createVideo(medias[currentIndex].dataset.video))
         }
-        currentMedia = 'video'
+        currentMedia = "video"
     }
     p.textContent = medias[currentIndex].alt
 }
