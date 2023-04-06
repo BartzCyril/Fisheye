@@ -45,6 +45,12 @@ input {
   border-radius: 0;
 }
 
+button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   max-width: 1440px;
@@ -98,6 +104,7 @@ header h1 {
   height: 200px;
   width: 200px;
   object-fit: cover;
+  overflow-clip-margin: unset;
 }
 .photographer_section article span:nth-child(2) {
   font-size: 13px;
