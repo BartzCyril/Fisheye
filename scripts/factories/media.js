@@ -1,33 +1,16 @@
+/* eslint-disable no-undef */
 function mediaFactory(data) {
     const {title, likes, date} = data
 
     function getImgThumbnail() {
-        const video = document.createElement("video")
-        video.setAttribute("src", `assets/photographers/${data.video}`)
-        const canvas = document.createElement("canvas")
-        const ctx = canvas.getContext("2d")
-        const img = document.createElement("img")
-        img.setAttribute("alt", title)
-        img.setAttribute("data-video", `assets/photographers/${data.video}`)
-        img.setAttribute("tabindex", "0")
-        img.classList.add("media-card-img")
-        img.addEventListener("click", () => {displayMediaModal(title)})
-        img.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-              displayMediaModal(title)
-            }
-        });
-        video.addEventListener("loadeddata", () => {
-            // Définir la taille du canvas en fonction de la vidéo
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-          
-            // Dessinez l"image miniature sur le canvas
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            
-            img.src = canvas.toDataURL();
-        });
-        return img
+        const imgThumbnail = document.createElement("video")
+        imgThumbnail.setAttribute("src", `assets/photographers/${data.video}`)
+        imgThumbnail.setAttribute("data-video", `assets/photographers/${data.video}`)
+        imgThumbnail.setAttribute("tabindex", "0")
+        imgThumbnail.classList.add("media-card-img")
+        imgThumbnail.setAttribute("data-alt", title)
+        imgThumbnail.addEventListener("click", () => {displayMediaModal(title)})
+        return imgThumbnail
     }
 
     function getImg() {
@@ -39,7 +22,7 @@ function mediaFactory(data) {
         img.addEventListener("click", () => {displayMediaModal(title)})
         img.addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
-              displayMediaModal(title)
+                displayMediaModal(title)
             }
         })
         return img

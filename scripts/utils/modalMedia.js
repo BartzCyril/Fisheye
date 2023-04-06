@@ -27,7 +27,7 @@ function closeMediaModal() {
 
 function getMediaIndex(title) {
     for (let i = 0; i < medias.length; i++) {
-        if (medias[i].alt === title) {
+        if (medias[i].alt === title || medias[i].dataset.alt === title) {
             return i
         }
     }
