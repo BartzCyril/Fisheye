@@ -1,8 +1,15 @@
+const keydownListenerContactModal = function(event) {
+    if (event.key === "Escape") {
+        closeContactModal()
+    }
+}
+
 function displayContactModal() {
     const modal = document.getElementById("contact_modal")
     const bground = document.querySelector(".bground")
     modal.style.display = "block"
     bground.style.display = "block"
+    document.addEventListener("keydown", keydownListenerContactModal)  
 }
 
 function closeContactModal() {
@@ -10,6 +17,7 @@ function closeContactModal() {
     const bground = document.querySelector(".bground")
     modal.style.display = "none"
     bground.style.display = "none"
+    document.removeEventListener("keydown", keydownListenerContactModal)  
 }
 
 const formData = document.querySelectorAll(".formData")

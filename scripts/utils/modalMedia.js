@@ -5,6 +5,12 @@ let isCreateImg = false
 let isCreateVideo = false
 let currentMedia = null
 
+const keydownListenerMediaModal = function(event) {
+    if (event.key === "Escape") {
+        closeMediaModal()
+    }
+}
+
 function displayMediaModal(title) {
     const modal = document.getElementById("media_modal")
     const bground = document.querySelector(".bground")
@@ -15,6 +21,8 @@ function displayMediaModal(title) {
     currentIndex = getMediaIndex(title)
     medias[currentIndex].dataset.video ? currentMedia = "video" : currentMedia = "img"
     getMedia()
+    document.addEventListener("keydown", keydownListenerMediaModal)
+
 }
 
 function closeMediaModal() {
@@ -23,6 +31,7 @@ function closeMediaModal() {
     modal.style.display = "none"
     bground.style.display = "none"
     currentMedia === "video" ? removeVideo() : removeImg()
+    document.removeEventListener("keydown", keydownListenerMediaModal)
 }
 
 function getMediaIndex(title) {
