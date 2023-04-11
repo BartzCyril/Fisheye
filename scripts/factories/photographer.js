@@ -8,6 +8,7 @@ function photographerFactory(data) {
         a.setAttribute("href", `photographer.html?id=${id}`)
         const img = document.createElement( "img" )
         img.setAttribute("src", picture)
+        img.setAttribute("alt", name)
         const h2 = document.createElement( "h2" )
         h2.textContent = name
         const span = document.createElement("span")
