@@ -1,33 +1,42 @@
-# Fisheye
+# FishEye — plateforme de photographes accessible
+
+> Prototype en JavaScript natif d'un site qui permet à des photographes indépendants de présenter leurs travaux, avec l'accessibilité comme priorité absolue.
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)
+
+**👉 Voir le site : [bartzcyril.github.io/Fisheye](https://bartzcyril.github.io/Fisheye/)**
 
 ## Sujet
 
-Depuis quelques semaines, vous êtes développeur junior chez Techasite, une société de conseil spécialisée dans le développement de sites web et d'applications mobiles.
+Projet de formation OpenClassrooms. FishEye, site de photographes indépendants, veut moderniser son site. Mission : livrer un prototype fonctionnel (HTML, CSS, JavaScript) à partir des maquettes Figma, les données étant fournies dans un fichier JSON en attendant le back-end. Le client a fait de l'**accessibilité** sa priorité.
 
-Avec votre cheffe de projet Amanda et le Designer UI, vous venez de faire une réunion de lancement du projet avec un nouveau client, FishEye. 
-FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux. 
+## Fonctionnalités
 
-Ils ont récemment levé des fonds et aimeraient mettre à jour leur site web. 
-
-Merci d'avoir participé à la réunion de ce matin ! Pour résumer, notre objectif est de construire un prototype fonctionnel d'un nouveau site web que nous pourrons présenter à FishEye lors de notre prochaine réunion avec les clients. 
-Tu seras chargé de fournir tout le HTML, le CSS et le JavaScript nécessaires au prototype. 
-
-Notre équipe de back-end intégrera le système existant de FishEye une fois que tu auras terminé le code pour ta partie du projet. 
-
-Comme l'a mentionné le client lors de la réunion de lancement, sa priorité absolue est l'accessibilité. 
-Veille à construire le site conformément aux exigences d'accessibilité indiquées dans mes notes.
+- Page d'accueil listant les photographes (nom, ville, slogan, tarif)
+- Page de chaque photographe générée dynamiquement à partir du JSON
+- Galerie de photos et de vidéos, **triable** par popularité, date ou titre
+- **Lightbox** pour parcourir les médias, à la souris ou au clavier
+- **Likes** sur chaque média, avec total mis à jour en direct
+- **Formulaire de contact** dans une modale
 
 ## Compétences acquises
 
-J'ai travaillé sur le projet FishEye chez Techasite en tant que développeur junior. Mon rôle était de créer un prototype fonctionnel du site web pour la plateforme FishEye, qui permet aux photographes indépendants de présenter leurs travaux. J'ai développé toutes les fonctionnalités en respectant les maquettes fournies par le designer UI et les exigences techniques décrites lors de la réunion de lancement avec le client.
+- **JavaScript natif** : récupération des données avec `fetch`, génération dynamique du DOM
+- **Design pattern Factory** pour créer les photographes et distinguer photos et vidéos
+- **Accessibilité** : navigation complète au clavier, gestion du focus dans les modales, attributs ARIA, textes alternatifs, structure sémantique, site pensé pour les lecteurs d'écran
+- **Gestion des événements** (clavier, souris) et de l'état de l'interface
+- Code sans erreur dans la console, organisé en `factories/`, `pages/` et `utils/`
+- **Sass** pour les styles
 
-J'ai utilisé HTML, CSS et JavaScript pour construire les différentes pages du site. J'ai intégré les informations des photographes, y compris leurs noms, localisations, descriptions, tags et prix par jour. J'ai également utilisé le pattern Factory Method pour gérer la création des médias, en distinguant les vidéos des photos.
+## Lancer le projet
 
-J'ai accordé une grande attention à l'accessibilité du site, en m'assurant qu'il respecte les exigences mentionnées dans les notes de réunion. J'ai effectué des tests approfondis pour vérifier que le site fonctionnait correctement et qu'il n'y avait aucune erreur dans la console.
+Les données étant chargées avec `fetch`, le site doit être servi par un serveur local, par exemple :
 
-Une fois que j'ai terminé le développement, j'ai soumis le code complet via un repo GitHub. L'équipe a passé en revue toutes les fonctionnalités du site et j'ai effectué une démonstration de la navigation au clavier pour s'assurer de son utilisation par les lecteurs d'écran.
-
-Ce projet m'a permis d'acquérir une expérience pratique dans le développement d'un prototype de site web et de renforcer mes compétences en HTML, CSS et JavaScript. J'ai également amélioré ma compréhension de l'accessibilité et des bonnes pratiques de développement.
+```bash
+npx serve .
+```
 
 ## Site
 
